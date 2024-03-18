@@ -1,5 +1,5 @@
-#if !defined(____HEADER_GUARD_FILE_S_OPEN_C)
-#define ____HEADER_GUARD_FILE_S_OPEN_C
+#if !defined(____HEADER_GUARD_STRING_S_ALLOC_C)
+#define ____HEADER_GUARD_STRING_S_ALLOC_C
 
 
 
@@ -8,7 +8,7 @@
 
 
 #include "string_s_type.h"
-#include "exit_status_t.h"
+#include "exit_status_type.h"
 
 
 #include <malloc.h>

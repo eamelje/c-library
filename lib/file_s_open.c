@@ -1,5 +1,5 @@
 //#define __________FILE_S_OPEN_DEBUG
-#define __________FILE_S_CLOSE_DEBUG
+//#define __________FILE_S_CLOSE_DEBUG
 
 
 #include "file_s_open.h"
@@ -37,6 +37,14 @@ if((*file).isOpen)
 fprintf(stderr,"[WARNING] :  please close the current file before opening a new one .  \n");
 (*file).status = file_s_status_openFailure_alreadyOpen;
 return EXIT_FAILURE;
+}
+
+
+if(path.chars == NULL)
+{
+	fprintf(stderr,"[WARNING] :  Please provide a path .  \n");
+	(*file).status = file_s_status_openFailure_noPath;
+	return EXIT_FAILURE;
 }
 
 

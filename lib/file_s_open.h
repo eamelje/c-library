@@ -10,7 +10,7 @@
 #include "file_s_type.h"
 #include "string_s_type.h"
 #include "bool_type.h"
-#include "exit_status_t.h"
+#include "exit_status_type.h"
 
 
 #include <stdio.h>//fopen, fclose

@@ -20,15 +20,15 @@ ____file_find_depends_function_declaration
 string_s_t r, str_tmp1, str_tmp2;
 char *charPtr_tmp;
 
-str_tmp1 = string_s_assignImmediate("find ");
-str_tmp2 = string_s_assignImmediate(pattern);
+str_tmp1 = string_s_assignCharPtr("find ");
+str_tmp2 = string_s_assignCharPtr(pattern);
 
 string_s_cat(&str_tmp1, str_tmp2, 1);
 string_s_free(&str_tmp2);
 
 charPtr_tmp = system(str_tmp1.chars);
 string_s_free(&str_tmp1);
-str_tmp1 = string_s_assignImmediate(charPtr_tmp);
+str_tmp1 = string_s_assignCharPtr(charPtr_tmp);
 
 
 
@@ -51,7 +51,7 @@ return str_tmp1;
 
 {/*CURRENTLY NOT IMPLEMENTED, RETURNING NOTHING*/
 string_s_t r;
-r = string_s_assignImmediate("");
+r = string_s_assignCharPtr("");
 return r;
 }
 

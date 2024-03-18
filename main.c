@@ -1,7 +1,7 @@
 #include "bool_type.h"
 #include "char_is_.h"
 #include "charPtr_length.h"
-#include "exit_status_t.h"
+#include "exit_status_type.h"
 #include "file_s_open.h"
 #include "file_s_type.h"
 #include "file_s_read_string_s.h"

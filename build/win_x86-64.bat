@@ -1,19 +1,17 @@
 @echo off
 
 SET COMPILER_PATH=clang
-SET APP_NAME="application.exe"
-SET LIB_DIR="../lib"
-SET MAIN_PATH="../main.c"
+SET APP_PATH="bin\win64.exe"
+SET LIB_DIR="..\lib"
+SET MAIN_PATH="..\main.c"
 
-%COMPILER_PATH% -I%LIB_DIR% %LIB_DIR%/*.c %MAIN_PATH% -o %APP_NAME%
+%COMPILER_PATH% -I%LIB_DIR% %LIB_DIR%\*.c %MAIN_PATH% -o %APP_PATH%
 
 echo(
 echo Compilation end
 echo(
 
-pause
-
-%APP_NAME%
+%APP_PATH%
 
 echo(
 pause

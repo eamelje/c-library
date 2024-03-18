@@ -11,7 +11,7 @@
 
 
 /* need to implement as malloc/calloc instead of realloc, otherwise runtime crashes*/
-____string_s_assignImmediate_function_declaration{
+____string_s_assignCharPtr_function_declaration{
 string_s_t r = (string_s_t){
 .chars = NULL, .len = 0, 
 #if defined(____STRING_S_T_USE_MEMORY_FIELD)

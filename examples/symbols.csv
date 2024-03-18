@@ -1,0 +1,14 @@
+symbol name, symbol, pros, cons, notes
+assignL & assignR, "=", simple & short, ambiguous
+assignL & assignR, ( ":<" & ":>" ). | ("<:" & ">:"). | (":<" & ">:"). | ("<:" & ":>"), uncommon. & obvious direction, long (2 chars)
+assignL & assignR, "<=" & "=>", obvious direction, could clash with LEQ/GEQ. & 2 chars
+assignL & assignR, ":=" & "=:", uncommon, ambiguous direction. & 2 chars
+LEQ & REQ, "<=" & ">=", ISO C,
+LEQ & REQ, "=<" & "=>", reasonable, inverse of ISO C
+LEQ & REQ, ("?<=" & "?>=") | ("?=<" & "?=>"), obvious that it's a logical operator, long (3 chars), prefix all logical operators with '?'
+less than & greater than, "<" & ">", ISO C, may be similar to (assignL & assignR) | (bitshiftL & bitshiftR) | some other directional operator,
+less than & greater than, "?<" & "?>", obvious that it's a logical operator, long (2 chars), prefix all logical oerators with '?'
+EQ, "=", simple & short, may clash with (assignL | assignR) or something else,
+EQ, "==", ISO C, visually very similar to "=" which may be hard to read,
+NOT, "!", ISO C, possibly no "?" which makes it inconsistent in a way
+NOT, "?!", , long. & may be a bit overkill since "!" alone may make it obvious enough that its a logical operator, 

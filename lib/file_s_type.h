@@ -17,6 +17,7 @@ typedef enum file_s_status_t {
 	file_s_status_closeFailure,
 	file_s_status_openFailure_alreadyOpen,
 	file_s_status_unknown,
+	file_s_status_openFailure_noPath,
 	____file_s_status_t_count
 } file_s_status_t;
 

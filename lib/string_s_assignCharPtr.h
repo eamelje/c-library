@@ -1,5 +1,5 @@
-#if !defined(____HEADER_GUARD_STRING_S_ASSIGNIMMEDIATE_C)
-#define ____HEADER_GUARD_STRING_S_ASSIGNIMMEDIATE_C
+#if !defined(____HEADER_GUARD_STRING_S_ASSIGNCHARPTR_C)
+#define ____HEADER_GUARD_STRING_S_ASSIGNCHARPTR_C
 
 
 
@@ -7,15 +7,15 @@
 
 
 
-#define ____string_s_assignImmediate_function_declaration \
-string_s_t string_s_assignImmediate\
+#define ____string_s_assignCharPtr_function_declaration \
+string_s_t string_s_assignCharPtr\
 (\
 char_ptr_t chars\
 )
 
 
 
-____string_s_assignImmediate_function_declaration;
+____string_s_assignCharPtr_function_declaration;
 
 
 
