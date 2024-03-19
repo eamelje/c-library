@@ -1,4 +1,4 @@
-#define ____FILE_S_READ_STRING_S_DEBUG
+//#define ____FILE_S_READ_STRING_S_DEBUG
 
 
 
@@ -18,6 +18,7 @@
 
 ____FREAD_S_STRING_S_FUNCTION_DECLARATION{
 
+stream->status = file_s_status_readFailure;
 
 
 					#if defined(____FILE_S_READ_STRING_S_DEBUG)
@@ -75,7 +76,7 @@ else if(mode == fread_s_string_s_mode_overwrite)
 
 
 /*std fread returns count of elements read*/
-ui64_t fread_element_count = fread(temp->chars, sizeof(char), read_len, stream.stdFile);
+ui64_t fread_element_count = fread(temp->chars, sizeof(char), read_len, stream->stdFile);
 					#if defined(____FILE_S_READ_STRING_S_DEBUG)
 					___DEBUG_PRINT_LINE(__LINE__)
 					fprintf(stderr,"[DEBUG] :  file :  file_s_read_string_s.c .  fread_element_count = %i .  \n",(int)fread_element_count);
@@ -121,6 +122,13 @@ if(fread_element_count < (ui64_t)(read_len*0.95 - 64) )// - realloc if wasting a
 					#if defined(____FILE_S_READ_STRING_S_DEBUG)
 					___DEBUG_PRINT_LINE(__LINE__)
 					#endif
+
+
+
+stream->status = file_s_status_readSuccess;
+
+
+
 return fread_element_count;
 
 

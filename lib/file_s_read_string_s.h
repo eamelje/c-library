@@ -43,7 +43,7 @@ ____FREAD_S_STRING_S_LEN_TYPE fread_s_string_s\
 string_s_t *buf, \
 fread_s_string_s_mode_t mode, \
 ____FREAD_S_STRING_S_LEN_TYPE read_len, \
-file_s_t stream\
+file_s_t *stream\
 )
 
 

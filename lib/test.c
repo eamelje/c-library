@@ -140,7 +140,7 @@ string_s_free ( &d );
 
 printf ( "[DEBUG] :  functions: file_s_open, file_s_close\n" );
 
-fprintf(stderr, "[DEBUG] :  file_func_test_file == \"%s\" .  in file \"test.c\" at line %i\n",file_func_test_file,__LINE__);
+//fprintf(stderr, "[DEBUG] :  file_func_test_file == \"%s\" .  in file \"test.c\" at line %i\n",file_func_test_file,__LINE__);
 if(file_exists(file_func_test_file) == false){fprintf(stderr,"[DEBUG] :  file \" %s \" does not exist .  \n",file_func_test_file);}
 a = string_s_assignCharPtr(file_func_test_file);
 bool_a = file_s_open(&file_var, a, file_s_open_mode_read_binary);
@@ -156,15 +156,23 @@ string_s_free ( &a );
 
 printf ( "[DEBUG] :  functions: fread_s_string_s\n" );
 a = string_s_assignCharPtr(file_func_test_file);
-	PRINT_LINE_TEST(__LINE__)
 file_s_open(&file_var, a, file_s_open_mode_read_binary);
-	PRINT_LINE_TEST(__LINE__)
 ui32_t read_len_expected = 32;
 string_s_alloc(&b, read_len_expected);
-	PRINT_LINE_TEST(__LINE__)
-ui32_t read_len_actual = fread_s_string_s(&b, fread_s_string_s_mode_overwrite, read_len_expected, file_var);
-fprintf(stderr,"[DEBUG] :  read_len_actual :  %i .  read_len_expected :  %i .  \n", (int)read_len_expected, (int)read_len_actual);
+ui32_t read_len_actual = fread_s_string_s(&b, fread_s_string_s_mode_overwrite, read_len_expected, &file_var);
+//fprintf(stderr,"[DEBUG] :  read_len_actual :  %i .  read_len_expected :  %i .  \n", (int)read_len_expected, (int)read_len_actual);
 PRINT_LINE_STATUS ( read_len_expected == read_len_actual, __LINE__ )/*should be true*/
+//fprintf(stderr,"b = \"%s\" .  \n", b.chars);
+
+c = string_s_assignCharPtr("abcdefghijklmnopqrstuvwxyz123456");
+//fprintf(stderr,"b = \"%s\" ,  c = \"%s\" .  \n", b.chars, c.chars);
+PRINT_LINE_STATUS (string_s_equal(b, c, 0, 0, 0), __LINE__)/*should be true*/
+
+string_s_free(&a);
+string_s_free(&b);
+string_s_free(&c);
+
+
 printf("\n[DEBUG] :  DONE\n");
 
 
