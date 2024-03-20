@@ -25,4 +25,13 @@ typedef unsigned char exitStatus_t;
 
 
 
+#include "bool_type.h"
+
+typedef struct exitStatus_extra_t {
+	exitStatus_t status; 
+	bool shouldExitApplication;
+} exitStatus_extra_t;
+
+
+
 #endif

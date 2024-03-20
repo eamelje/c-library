@@ -1,0 +1,18 @@
+define function { 
+	name = main, 
+	attributes = { inline = false, static = false }, 
+	returnType = errorType, 
+	arguments = { 
+		{ name = argCount, type = integer_64bit }, 
+		{ name = argTextPtr, type = character pointer pointer }
+	},
+	body = {
+		define macro print = { returnType = function, value = { standardLibrary :: outputText } }
+		define variable { name = textWorld, type = string }
+		textWorld = call function stringAssignCharPtr{ value = {"world"} }
+		call function print { 
+			text = { "Hello, ", textWorld, "!\n" }, 
+			destination = { type = stream, name = standardOutput } 
+		}
+	}
+}
