@@ -18,5 +18,7 @@ echo Compilation end
 %APP_PATH%
 
 %ECHO_NEWLINE%
+echo press any key to recompile
 pause
+cls
 goto _COMPILE
