@@ -2,6 +2,7 @@
 #include "tryGetToken_immediateString.h"
 #include "../lib/exitStatus_type.h"
 #include <stdio.h>
+#include <exit.h>
 
 
 
@@ -10,7 +11,7 @@ ____TRYGETTOKEN_IMMEDIATESTRING_FUNCTION_DECLARATION
 
 
 
-exitStatus_extra_t r;
+exitStatus_t r;
 
 
 if(sourceCode[sourceCodeIndex] != TOKEN_STRINGsTART)
@@ -58,9 +59,8 @@ _LABEL_IMMEDIATESTRING_VALUECALC:
 		else
 		{
 			fprintf(stderr,"[ERROR] :  You cannot escape the character '%c' \n", sourceCode[sourceCodeIndex_temp])/*error and exit*/
-			r.status = exitStatus_failure;
-			r.shouldExitApplication = true;
-			return r;
+			r = exitStatus_failure;
+			exit(exitStatus_failure);
 		} 
 	}
 
@@ -188,8 +188,7 @@ tokenValue.chars[tokenValueIndex] = '\0';
 
 
 
-r.status = exitStatus_success;
-r.shouldExitApplcation = false;
+r = exitStatus_success;
 return r;
 
 

@@ -35,6 +35,7 @@ typedef struct tokenData_type {
 typedef struct tokenStack_type {
 	tokenData_type *ptr;
 	ui32_t index;
+	ui32_t mem;
 } tokenStack_type;
 
 

@@ -1,0 +1,105 @@
+#include "token_type.h"
+#include "token_core.h"
+#include "../lib/string_s_type.h"
+#include "../lib/int_type.h"
+#include "../lib/exit_status_type.h"
+
+
+
+#include <malloc.h>
+
+
+#define TOKENCONTEXTSTACKPTR_ALLOC_SIZE 64
+
+
+
+typedef enum compiler_token_context_type 
+{
+	ctc_define,
+	ctc_undefine,
+	ctc_callFunction,
+	ctc_defineFunction,
+	ctc_defineVariable,
+	ctc_defineMacro,
+	ctc_assign,
+	ctc_expression,
+	ctc_passFunctionArgs,
+
+	COMPILER_TOKEN_CONTEXT_COUNT
+} 
+compiler_token_context_type;
+
+
+
+typedef struct compiler_token_context_stack_type 
+{
+	compiler_token_context_type *ptr;
+	ui32_t 
+		index,
+		mem;
+}
+compiler_token_context_stack_type;
+
+
+
+void tokenContextStack_REALLOC(compiler_token_context_stack_type *stack, ui32_t new_size)
+{
+	void *tempPtr = realloc(stack->ptr, new_size);
+	free(stack->ptr);
+	stack->ptr = tempPtr;
+	stack->mem = new_size;
+}
+
+
+
+
+typedef enum tokenise_exitStatus_type 
+{
+	tkexst_syntaxError,
+	TOKENISE_EXITSTATUS_COUNT
+}
+tokenise_exitStatus_type;
+
+
+
+void tokenise_2024_03_21_1643
+(
+	tokenStack_type *tokenStack,
+	string_s_t sourceCode,
+	ui32_t *sourceCodeIndex,
+	compiler_token_context_stack_type *tokenContextStack
+)
+{
+
+
+//
+#define tokenContextStack_index_max ((ui32_t)(tokenContextStack->mem - 1))
+#define sourceChar sourceCode[*sourceCodeIndex]
+#define sourceChar_offs(offset_) sourceCode[(*sourceCodeIndex) + offset_]
+#define currentContext (tokenContextStack->mem[tokenContextStack->index])
+
+tokenise_exitStatus_type temp_tok_exitStatus;
+
+if(tokenContextStack->index != 0)
+{
+	exit(exitStatus_failure);/*taking into account an imported context stack is not implemented yet*/
+}
+
+if(tokenContextStack->mem == 0)
+{
+	tokenContextStack->ptr = malloc(sizeof(compiler_token_context_type) * TOKENCONTEXTSTACKPTR_ALLOC_SIZE);
+	tokenContextStack->mem = TOKENCONTEXTSTACKPTR_ALLOC_SIZE;
+}
+
+
+
+if(sourceChar == TOKEN_STRINGsTART)
+{
+	temp_tok_exitStatus = compiler_tokenise_immediateString(sourceCode, sourceCodeIndex, tokenStack);
+	/*test if immediateString makes sense in current context*/
+	if(currentContext == ctc_passFunctionArgs || (ctc_assign /* && variable type is char pointer*/) || ctc_defineMacro)
+}
+//
+
+
+}
