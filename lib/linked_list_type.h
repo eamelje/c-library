@@ -1,4 +1,4 @@
-#if defined(____HEADER_GUARD_linked_list_type_h)
+#if !defined(____HEADER_GUARD_linked_list_type_h)
 #define ____HEADER_GUARD_linked_list_type_h
 
 

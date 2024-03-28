@@ -23,7 +23,7 @@ ui ## size_ ## _t b\
 \
 \
 \
-return ((a + b) < a);\
+return ( ((a + b) < a) || ( (a = a+b) && (b != 0) );\
 \
 \
 \

@@ -6,6 +6,7 @@
 #include "../lib/int_isOdd.h"
 
 
+
 #define ____FUNCTION_DECLARATION_TEMPLATE_charPtrHash(size_) \
 ui ## size_ ## _t \
 charPtrHash ## size_\
